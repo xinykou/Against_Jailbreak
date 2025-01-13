@@ -1,0 +1,11 @@
+# Llama 3
+llama3_8B:
+  model:
+    model_name_or_path: /media/5/yx/against_jailbreak/saved_models/llama3_8B-mask-refat/merged
+    use_fast_tokenizer: False
+    dtype: float16
+    chat_template: llama-3
+  num_gpus: 2
+  model_type: open_source
+
+  classifier_path: ./saved_models/llama3_8B-mask-refat/classifier-attacker/safety_llama3_8B.pth

@@ -1,0 +1,60 @@
+# model arguments
+model_name_or_path: /media/5/yx/model_cache/Meta-Llama-3-8B-Instruct
+
+
+# LorraArguments
+#target_layers: 8,32 # start layer, end layer(not included)
+#transform_layers: "start_to_end"
+target_layers: 8,16,24,30 # start layer, end layer(not included)
+transform_layers: "discrete"
+
+# loss arguments
+coeff_harmful: 1.5
+coeff_help: 0.5
+using_adaptive_loss: False
+
+
+# feature arguments
+retain_topk: 30
+deltas: 0.6 # coefficient for the feature
+beta: 0.05 # variance of the normal distribution for noise
+refusal_feature_type: constant # variable, constant
+
+# LoraArguments
+lora_r: 64
+lora_alpha: 128
+
+
+# update refusal arguments
+update_refusal_features: True
+update_refusal_features_step: 4
+
+# training arguments
+output_dir: ./saved_models/llama3_8B-mask-refat
+overwrite_output_dir: True
+#max_steps: 150
+num_train_epochs: 1
+fp16: True
+per_device_train_batch_size: 8
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 4
+do_train: True
+do_eval: False
+#evaluation_strategy: steps
+#eval_steps: 1000
+save_total_limit: 0
+#save_strategy: steps
+#save_steps: 50
+learning_rate: 2.0e-5
+weight_decay: 0.
+lr_scheduler_type: cosine # cosine, constant
+logging_strategy: steps
+logging_steps: 1
+tf32: False
+model_max_length: 8192
+q_lora: False
+gradient_checkpointing: True
+report_to: wandb # wandb none
+run_name: llama3_8B-mask-refat
+log_every: 1
+max_grad_norm: 1.0
