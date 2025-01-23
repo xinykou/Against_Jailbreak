@@ -48,6 +48,15 @@ python -u evaluation/safety/evaluate_completions.py \
     --generate_with_vllm
 ```
 
+## Citation
+If you find this repository useful, please cite the following paper:
+```
+@article{xin2024latent,
+  title={Latent-space adversarial training with post-aware calibration for defending large language models against jailbreak attacks},
+  author={Xin Yi, Yue Li, Linlin Wang, Xiaoling Wang, Liang He},
+  journal={arXiv preprint arXiv:2501.10639},
+  year={2025}
+```
 
 ## Acknowledgement
 The code is based on the following repositories:
